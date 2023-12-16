@@ -21,33 +21,37 @@ typedef string str;
     ios_base::sync_with_stdio(0); \
     cin.tie(0);
 
-vector<int> solve()
+void solve()
 {
-    vector<int> nums{2, 7, 11, 15};
-    int target = 9;
-    int n = nums.size();
-    map<int, int> mp;
-    mp.insert({nums[0], 0});
-    
-    for (int i = 1; i < n; i++)
-    {
-        int item = target - nums[i];
+    vector<int> arr{-7, -8, -16, -4, -8, -5, -7, -11, -10, -12, -4, -6, -4, -16, -10};
+    int n = arr.size();
 
-        if (mp.find(item) != mp.end())
-        { 
-            vector<int>ans;
-            ans.push_back(i);
-            ans.push_back(mp[item]);
-            return ans;
+    long long maximum = LONG_MIN;
+    long long sum = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        sum += arr[i];
+
+        if (sum > maximum)
+        {
+            maximum = sum;
         }
-        mp.insert({nums[i], i});
+
+        if (sum < 0)
+        {
+            sum = 0;
+        }
     }
+
+    cout << maximum << endl;
 }
 
 int main()
 {
     fastio
 
+    // test
     solve();
 
     return 0;

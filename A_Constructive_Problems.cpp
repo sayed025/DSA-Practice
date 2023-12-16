@@ -21,34 +21,20 @@ typedef string str;
     ios_base::sync_with_stdio(0); \
     cin.tie(0);
 
-vector<int> solve()
+void solve()
 {
-    vector<int> nums{2, 7, 11, 15};
-    int target = 9;
-    int n = nums.size();
-    map<int, int> mp;
-    mp.insert({nums[0], 0});
-    
-    for (int i = 1; i < n; i++)
-    {
-        int item = target - nums[i];
+    int n, m;
+    cin >> n >> m;
 
-        if (mp.find(item) != mp.end())
-        { 
-            vector<int>ans;
-            ans.push_back(i);
-            ans.push_back(mp[item]);
-            return ans;
-        }
-        mp.insert({nums[i], i});
-    }
+    cout << min(m, n) + abs(m - n) << endl;
 }
 
 int main()
 {
     fastio
 
-    solve();
+        test
+        solve();
 
     return 0;
 }
